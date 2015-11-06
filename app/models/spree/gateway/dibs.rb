@@ -25,7 +25,7 @@ module Spree
       options[:orderId] = options[:order_id]
 
       # spree sends year as YYYY, this active_merchant gateway uses YY
-      creditcard.year = creditcard.year.to_str[-2,2]
+      creditcard.year = creditcard.year.to_s[-2,2]
       provider.authorize(money, creditcard, options)
     end
   end
